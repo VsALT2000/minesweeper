@@ -1,0 +1,111 @@
+.App {
+    text-align: center;
+}
+
+@tileColor: #2bcc00;
+
+.LineMinesweeper {
+    display: flex;
+    flex-direction: row;
+
+    &:nth-child(2n) {
+        :nth-child(2n + 1) {
+            background-color: lighten(@tileColor, 5%);
+        }
+
+        :nth-child(2n) {
+            background-color: @tileColor;
+        }
+
+        & .Opened {
+            @tileColor: #b6b6b6;
+
+            &:nth-child(2n + 1) {
+                background-color: lighten(@tileColor, 5%);
+            }
+
+            &:nth-child(2n) {
+                background-color: @tileColor;
+            }
+        }
+
+        & .Flag {
+            @tileColor: #d2a510;
+            background-color: @tileColor;
+
+            .TileMinesweeper:nth-child(2n + 1) {
+                background-color: lighten(@tileColor, 5%);
+            }
+
+            .TileMinesweeper:nth-child(2n) {
+                background-color: @tileColor;
+            }
+        }
+
+        & .Mine {
+            @tileColor: #d21010;
+            background-color: @tileColor;
+
+            .TileMinesweeper:nth-child(2n + 1) {
+                background-color: lighten(@tileColor, 5%);
+            }
+
+            .TileMinesweeper:nth-child(2n) {
+                background-color: @tileColor;
+            }
+        }
+    }
+}
+
+.TileMinesweeper {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+    &:nth-child(2n) {
+        background-color: lighten(@tileColor, 5%);
+    }
+
+    &:nth-child(2n + 1) {
+        background-color: @tileColor;
+    }
+
+    &.Opened {
+        @tileColor: #b6b6b6;
+        background-color: @tileColor;
+
+        &:nth-child(2n) {
+            background-color: lighten(@tileColor, 5%);
+        }
+
+        &:nth-child(2n + 1) {
+            background-color: @tileColor;
+        }
+    }
+
+    &.Flag {
+        @tileColor: #d2a510;
+        background-color: @tileColor;
+
+        &:nth-child(2n) {
+            background-color: lighten(@tileColor, 5%);
+        }
+
+        &:nth-child(2n + 1) {
+            background-color: @tileColor;
+        }
+    }
+
+    &.Mine {
+        @tileColor: #d21010;
+        background-color: @tileColor;
+
+        &:nth-child(2n) {
+            background-color: lighten(@tileColor, 5%);
+        }
+
+        &:nth-child(2n + 1) {
+            background-color: @tileColor;
+        }
+    }
+}

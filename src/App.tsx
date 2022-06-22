@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from "./App.less";
+import cn from "classnames";
 
 const width = 8;
 const height = 10;
@@ -116,17 +116,17 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className={styles.App}>
             <div>
                 {
                     map.map(line =>
-                        <div className={"LineMinesweeper"}>
+                        <div className={styles.LineMinesweeper}>
                             {
-                                line.map(el => <div className={"TileMinesweeper " + (
-                                    el.flag ? "TileMinesweeper--flag"
-                                        : el.opened
-                                            ? el.mine ? "TileMinesweeper--mine" : "TileMinesweeper--opened"
-                                            : "TileMinesweeper--closed")}
+                                line.map(el => <div className={cn(styles.TileMinesweeper, {
+                                    [styles.Flag]: el.flag,
+                                    [styles.Mine]: el.mine && el.opened,
+                                    [styles.Opened]: el.opened
+                                })}
                                                     onClick={(e) => onClick(e, el.x, el.y)}
                                                     onContextMenu={(e) => onClick(e, el.x, el.y)}
                                 >
