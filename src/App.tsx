@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from "./App.less";
+import styles from "./App.module.scss";
 import FlagIcon from "flag.svg";
 import cn from "classnames";
 
